@@ -1,0 +1,30 @@
+All 12 tests pass and Pint formatting is clean. The SiteStar website is fully built. Here's a summary of everything that was created:
+Pages (4 routes):
+Home (/) — Hero with animated gradient text, floating background shapes & parallax, services section, featured portfolio preview, animated stats counters, and CTA
+About (/about) — Company story, 6 principle cards with staggered reveal, technology stack with decorative code block
+Portfolio (/portfolio) — Grid of project cards for dimgent.com and dimgent.by with hover overlay effects, tags, descriptions
+Contact (/contact) — AJAX form with real-time validation, sticky sidebar with obfuscated contact info
+Contact Form Security (5 layers):
+Cloudflare Turnstile (invisible, configurable via TURNSTILE_SITE_KEY/TURNSTILE_SECRET_KEY in .env)
+Honeypot hidden field (website_url)
+Rate limiting (throttle:5,1 — 5 requests/minute)
+CSRF token (Laravel built-in)
+Server-side validation via ContactFormRequest
+Special Effects:
+Scroll-reveal animations (fade-up, fade-left, fade-right) with stagger
+Animated gradient text (amber/peach/coral shifting)
+Floating parallax background orbs
+Magnetic cursor-follow on buttons
+Card hover lift with shadow depth
+Heading underline reveal animation
+Counter animations with easing
+Smooth mobile menu transitions
+Anti-Spam for Emails/Phones:
+All emails and phone numbers are base64-encoded in HTML and decoded client-side via JavaScript (data-encode attributes)
+Mail Configuration:
+.env.example updated with MAIL_MAILER=sendmail, MAIL_FROM_ADDRESS="info@sitestar.by", MAIL_FROM_NAME="SiteStar"
+Styled HTML email template for contact submissions
+Tests:
+PageTest — 4 tests verifying all pages load with correct content
+ContactFormTest — 6 tests covering success, validation, honeypot rejection, and rate limiting
+The site is served by Laravel Herd and should be accessible. You may need to run npm run dev for hot-reload during development, or the build is already done and available.
